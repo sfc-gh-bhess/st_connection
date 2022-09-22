@@ -157,6 +157,13 @@ session = st.connection.snowflake.singleton(creds)
 You can pass any parameters to `st.connection.snowflake.singleton()` 
 that you would normally pass to `snowflake.snowpark.Session.builder.configs()`.
 
+At this point you will have a Snowpark `Session` object and can do normal Snowpark
+operations with it:
+
+```
+session.table("mytable").select......
+```
+
 ### Snowflake Python Connector
 To connect to Snowflake using the Snowflake Python Connector package, you would use
 `st.connection.snowflake_connection.singleton()`:
@@ -174,6 +181,13 @@ session = st.connection.snowflake_connection.singleton(creds)
 You can pass any parameters to `st.connection.snowflake_connection.singleton()` 
 that you would normally pass to `snowflake.connector.connect()`, but in 
 a dictionary instead of in kwargs fashion.
+
+At this point you will have a Snowflake Connector `SnowflakeConnection` object and can 
+do normal Snowflake connector operations with it:
+
+```
+session.cursor().execute(......)
+```
 
 ## Login Form
 To support making a connection per user to a data source we can use the
@@ -248,6 +262,13 @@ session = st.connection.snowflake.login({'user': '', 'password': None, 'database
 ## Nothing below here will be run until you log in.
 ```
 
+At this point you will have a Snowpark `Session` object and can do normal Snowpark
+operations with it:
+
+```
+session.table("mytable").select......
+```
+
 ### Snowflake Python Connector
 To connect to Snowflake using the Snowflake Python Connector with a login form,
 you would use `st.connection.snowflake_connection.login()`:
@@ -261,6 +282,13 @@ import st_connection.snowflake
 session = st.connection.snowflake_connection.login({'user': '', 'password': None, 'database': 'PROJECT_DB'}, {'account': 'XXX', 'warehouse': 'PROJECT_WH'}, 'Snowflake Login')
 
 ## Nothing below here will be run until you log in.
+```
+
+At this point you will have a Snowflake Connector `SnowflakeConnection` object and can 
+do normal Snowflake connector operations with it:
+
+```
+session.cursor().execute(......)
 ```
 
 ## *Experimental Feature for Snowflake (Automatic Caching of Result Sets)*

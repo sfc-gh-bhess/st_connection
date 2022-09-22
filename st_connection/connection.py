@@ -90,7 +90,7 @@ class _connection:
         ST_KEY = self._connection_impl.ST_KEY()
         if ST_KEY in st.session_state:
             if self._connection_impl.is_open(st.session_state[ST_KEY]):
-                st.sidebar.button("Disconnect", on_click=self._connection_impl.close_and_clear, args=(st.session_state[ST_KEY],))
+                st.sidebar.button("Disconnect", on_click=self._connection_impl.close_and_clear, args=(st.session_state[ST_KEY],), key=f"Disconnect_{ST_KEY}")
                 return st.session_state[ST_KEY]
             else:
                 del st.session_state[ST_KEY]
