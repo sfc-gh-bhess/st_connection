@@ -125,6 +125,15 @@ session = st.connection.CONNECTOR.singleton(creds)
 At that point you can use the session just like you would otherwise. If
 the connection gets severed, the session will automatically be recreated.
 
+You can also pair this with `st.secrets`, of course:
+```
+import streamlit as st
+import st_connection
+import st_connection.CONNECTOR
+
+session = st.connection.CONNECTOR.singleton(st.secrets[SECRETS_KEY])
+```
+
 ### Snowpark Python
 To connect to Snowflake using the Snowpark Python package, you would use
 `st.connection.snowflake.singleton()`:
