@@ -19,6 +19,12 @@ pip install git+https://github.com/sfc-gh-brianhess/st_connection.git
 ```
 Note that python 3.8 is the only supported python version currently.
 
+To install directly from github via pipenv, use:
+```
+pipenv install git+https://github.com/sfc-gh-brianhess/st_connection.git#egg=st_connection
+```
+
+
 ## Description
 
 Streamlit is a powerful data and visualization tool, but to do data analysis
